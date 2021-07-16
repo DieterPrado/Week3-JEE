@@ -11,7 +11,8 @@
 
 ### General info
 
-This repository contains files and explanations of things learned in the Platzi's Java Spring Boot Course. 
+This repository contains files and explanations of things learned in the Platzi's Hibernate and Java Spring Course. This course taught about JSP and how to insert code in html pages. It also taught how to use differente technologies like spring and longbook that allow us to write less code and focus in other parts of the code and other technologies like tomcat and omnidb. In this repository you will find a project with MVC (model, view, controller) structure for reservation hotel rooms in which we create, update and delete users from the DB and can see the check-in date in the hotel and the check-out date. 
+
 ------------
 
 ### Technologies
@@ -70,7 +71,7 @@ This repository contains files and explanations of things learned in the Platzi'
 - continue the installation with the installer
 
 
-*Dependencies and plugins install in pom.xml*
+Dependencies:
 
 ##### Lombok
 - Copy the next code and insert it into the file in the dependencies part of the code.
@@ -145,7 +146,22 @@ This repository contains files and explanations of things learned in the Platzi'
 
 ------------
 ### Things learned
-- What spring boot is.
+- What springframework is.
+- Spring Tool Suite 4.
+- URL components.
+- What servlets are.
+- MVC pattern design.
+- Servlet characteristics.
+- Servlet types (hhtp servlet and genericservlet)
+- JSP.
+- JPQL.
+- Spring annotations.
+- Transactions.
+- Advantages of web apps.
+- Web server.
+- Graphical documentation using swagger.
+- Spring security.
+- Make authentication requiered to do certain operations.
 
 
 ------------
