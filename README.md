@@ -1,11 +1,19 @@
 # Week 3 JEE (Hibernate Spring)
 ### Table of contents
-- General info
-- Technologies
-- Setup
-- Things learned
-- Commands
-
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Things learned](#things-learned)
+>- What is springboot.
+>- SpringToolSuite 4.
+>- Servlets.
+>- Servlet types.
+>- MVC design pattern.
+>- What is JSP.
+>- What is JPQL.
+>- Transactions.
+>- Graphic documentation using swagger.
+- [Annotations and definitions](#annotations-and-definitions)
 
 ------------
 
@@ -71,103 +79,112 @@ This repository contains files and explanations of things learned in the Platzi'
 - continue the installation with the installer
 
 
-Dependencies:
-
-##### Lombok
+##### Dependencies: 
 - Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+```java
+<dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-		</dependency>`
+</dependency>
 
-
-##### Swagger 2
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+<dependency>
     		<groupId>io.springfox</groupId>
     		<artifactId>springfox-swagger2</artifactId>
     		<version>2.9.2</version>
-		</dependency>`
+</dependency>
 
-    
-##### Swagger ui
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+<dependency>
     		<groupId>io.springfox</groupId>
     		<artifactId>springfox-swagger-ui</artifactId>
     		<version>2.9.2</version>
-		</dependency>`
+</dependency>
 
-##### Spring boot starter security
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>`
-    
-##### PostgreSQL
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+</dependency>
+
+<dependency>
     		<groupId>org.postgresql</groupId>
     		<artifactId>postgresql</artifactId>
-		</dependency>`    
-    
-##### Spring boot starter test
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+</dependency>
+
+<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>` 
+</dependency>
 
-##### Spring boot starter web
-- Copy the next code and insert it into the file in the dependencies part of the code.
--  `<dependency>
+<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>` 
-
+</dependency>
+```
     
-##### Spring boot maven plugin
+##### Plugins: 
 - Copy the next code and insert it into the file in the plugins part of the code.
--  `  <plugin>
+```java
+<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>`    
-      
-##### Docker maven plugin
-- Copy the next code and insert it into the file in the plugins part of the code.
--  `  <plugin>
+</plugin>
+<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.21.0</version>
-			</plugin>`     
+</plugin>
+```
 
 ------------
 ### Things learned
-- What springframework is.
-- Spring Tool Suite 4.
-- URL components.
-- What servlets are.
-- MVC pattern design.
-- Servlet characteristics.
-- Servlet types (hhtp servlet and genericservlet)
-- JSP.
-- JPQL.
-- Spring annotations.
-- Transactions.
+- What spring is. Its an application framework and inversion of control container for the Java platform. The frameworks core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE platform.
+
+- Spring Tool Suite 4. It provides support for developing Spring-based enterprise applications, in the next IDEs: Eclipse, Visual Studio Code, or Theia IDE.
+
+- URL components. Protocol, domain and context.
+
+- What servlets are. They are components on the server side that allow to process client requests and respond through the generation of dynamic content or redirect them to other resources. A servlet is simply a class which responds to a particular type of network request - most commonly an HTTP request. Servlets are usually used to implement web applications.
+
+- MVC design pattern, a way to structure our project. MVC = model, view, controller.
+>- Model - It directly manages the data, logic and rules of the application.
+>- View - Any representation of information such as a chart, diagram or table.
+>- Controller - Accepts input and converts it to commands for the model or view.
+
+- Servlet types (hhtp servlet and genericservlet). 
+>- Generic servlets: Are protocol independent. They contain no inherent HTTP support or any other transport protocol.
+>- HTTP servlets: Have built-in HTTP protocol support and are more useful in a Sun Java System Web Server environment.
+>- All servlets must implement a service() method, which is responsible for handling servlet requests. For generic servlets, simply override the service method to provide routines for handling requests. HTTP servlets provide a service method that automatically routes the request to another method in the servlet based on which HTTP transfer method is used. So, for HTTP servlets, override doPost() to process POST requests, doGet() to process GET requests, and so on.
+
+- JSP (JavaServer Pages). It is collection of technologies that helps software developers create dynamically generated web pages based on HTML, XML, SOAP, or other document types. It allows Java code and certain predefined actions to be interleaved with static web markup content, such as HTML.
+
+- JPQL. JPQL is a powerful query language that allows you to define database queries based on your entity model. Its structure and syntax are very similar to SQL. It doesn´t work with tables but with objects representing those tables. It supports queries and namedqueries. Example:
+```java
+@Query("Select r from Reserva r where r.fechaIngresoRes =:fechaInicio and r.fechaSalidaReserva =: fechaSalida")
+public List<Reserva> find(@Param("fechaInicio")Date fechaInicio, @Param("fechaSalida") Date fechaSalida);
+
+@NamedQuery(name ="Cliente.findByIdentificacion", query="Select c from Cliente c where c.identificacionCli = ?1")
+```
+
+- Spring annotations. More details below in the Annotations section.
+
+- Transactions. A series of steps that alter the database (for example, update the values) and must be executed successfully, otherwise none of the steps will be executed. 
+
 - Advantages of web apps.
+
 - Web server.
+
 - Graphical documentation using swagger.
+
 - Spring security.
+
 - Make authentication requiered to do certain operations.
 
 
 ------------
 
 ### Commands
-|  Command | Function  |
+|  Annotations and definitions | Function  |
 | ------------ | ------------ |
 | @Springbootapplication | Tells Spring Boot that a class manages the app.   |
 | @Entitiy | Tells a java class that it is representing a table in the database.   |
